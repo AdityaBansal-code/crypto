@@ -21,7 +21,7 @@ const useStyles = makeStyles()(() => ({
 function App() {
   const { classes } = useStyles();
   const setUser = useCryptoStore((state) => state.setUser);
-  const fetchWatchlist = useCryptoStore((state) => state.fetchWatchlist);
+  const fetchWatchlist = useCryptoStore((state) => state.fetchWatchlist); 
 
   useEffect(() => {
     const fetchSession = async () => {
