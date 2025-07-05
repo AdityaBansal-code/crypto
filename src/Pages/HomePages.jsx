@@ -2,11 +2,11 @@ import React from 'react'
 import Banner from '../Components/Banner/Banner'
 import CoinsTable from '../Components/CoinsTable'
 
-const HomePage = () => {
+const HomePages = () => {
   return (<>
   <Banner />
   <CoinsTable />
   </>)}
    
 
-export default HomePage
+export default HomePages

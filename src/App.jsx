@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { makeStyles } from 'tss-react/mui';
 
 import Header from "./Components/Header";
-import HomePage from "./Pages/Homepage";
+import HomePages from "./Pages/HomePages.jsx"
 import CoinPage from "./Pages/CoinPage";
 import Alert from "./Components/Alert";
 
@@ -45,7 +45,7 @@ function App() {
       <div className={classes.root}>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePages />} />
           <Route path="/coins/:id" element={<CoinPage />} />
         </Routes>
       </div>
