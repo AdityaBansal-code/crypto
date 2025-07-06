@@ -9,6 +9,7 @@ import Alert from "./Components/Alert";
 
 import useCryptoStore from "./Store/CryptoStore";
 import supabase from "./Config/SupabaseClient";
+import { Analytics } from "@vercel/analytics/react"
 
 const useStyles = makeStyles()(() => ({
   root: {
@@ -50,6 +51,7 @@ function App() {
         </Routes>
       </div>
       <Alert />
+      <Analytics />
     </BrowserRouter>
   );
 }
