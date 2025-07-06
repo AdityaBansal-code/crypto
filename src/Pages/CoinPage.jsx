@@ -6,7 +6,7 @@ import { makeStyles } from "tss-react/mui";
 import axios from "axios";
 import { LinearProgress, Typography, Button } from "@mui/material";
 import parse from "html-react-parser";
-import { SingleCoin } from "../Config/api";
+import { fetchSingleCoin } from "../Config/api";
 import { numberWithCommas } from "../Components/Banner/Carousel";
 import supabase from "../Config/SupabaseClient";
 
@@ -82,7 +82,7 @@ const CoinPage = () => {
 
   const fetchCoin = async () => {
     try {
-      const { data } = await axios.get(SingleCoin(id));
+      const data = await fetchSingleCoin(id);
       setCoin(data);
     } catch (err) {
       setError("Failed to fetch coin data.");

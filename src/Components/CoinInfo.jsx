@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HistoricalChart } from "../Config/api";
-import axios from "axios";
+import { fetchHistoricalChart } from "../Config/api";
 import useCryptoStore from "../Store/CryptoStore";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { makeStyles } from "tss-react/mui";
@@ -38,7 +37,7 @@ const CoinInfo = ({ coin }) => {
   const { currency } = useCryptoStore();
 
   const fetchHistoricalData = async () => {
-    const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
+    const data = await fetchHistoricalChart(coin.id, days, currency);
     setHistoricalData(data.prices);
   };
 

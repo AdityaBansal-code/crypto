@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { makeStyles } from "tss-react/mui";
-import { CoinList } from "../Config/api";
+import { fetchCoinList } from "../Config/api";
 import useCryptoStore from "../Store/CryptoStore";
 import { numberWithCommas } from "./Banner/Carousel";
 

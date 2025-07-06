@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "tss-react/mui";
-import { TrendingCoins } from "../../Config/api";
+import { fetchTrendingCoins } from "../../Config/api";
 import useCryptoStore from "../../Store/CryptoStore";
-import axios from "axios";
 import AliceCarousel from "react-alice-carousel";
 import { Link } from "react-router-dom";
 
@@ -45,13 +44,13 @@ const Carousel = () => {
   const { currency } = useCryptoStore();
   const { symbol } = useCryptoStore();
 
-  const fetchTrendingCoins = async () => {
-    const { data } = await axios.get(TrendingCoins(currency));
+  const getTrendingCoins = async () => {
+    const data = await fetchTrendingCoins(currency);
     setTrending(data);
   };
 
   useEffect(() => {
-    fetchTrendingCoins();
+    getTrendingCoins();
   }, [currency]);
 
   const items = trending.map((coin) => {

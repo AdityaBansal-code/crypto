@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import axios from 'axios';
-import { CoinList } from '../Config/api';
+import { fetchCoinList } from '../Config/api';
 import supabase from '../Config/SupabaseClient';
 
 const useCryptoStore = create((set, get) => ({
@@ -32,7 +32,7 @@ const useCryptoStore = create((set, get) => ({
     const { currency } = get();
     set({ loading: true });
     try {
-      const { data } = await axios.get(CoinList(currency));
+      const data = await fetchCoinList(currency);
       set({ coins: data, loading: false });
     } catch (error) {
       console.error("Error fetching coins:", error);
